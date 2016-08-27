@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>视频弹出，遮罩层应用  --刀刀</title>
+		<meta name="keywords" content="关键字,遮罩层,刀刀" />
+		<meta name="description" content="" />
+		
+		<!-- css/js -->
+		<style>
+			*{margin:0; padding:0;}
+			body{font-size:12px;font-family:"微软雅黑";color:#666;background:#dfa;height:2000px;}
+			/* 标题 start */
+			.subject{width:350px;height:32px;line-height:32px;margin:50px auto;}
+			/* 标题 end */
+			
+			/* show start */
+			.btn{width:185px; height:32px; line-height:32px;display:block;text-decoration:none;margin:0 auto; 
+				padding-left:15px;font-size:16px;border:1px solid #ccc;border-radius:16px;}
+			.btn:hover{background:#d3d;color:#fff;}
+			.show-box{width:700px;height:400px;background:#6cf;margin:30px auto; box-shadow:1px 3px 20px 8px #6a907f;
+				position:absolute;z-index:1;display:none;}
+			.bg-div{width:100%;height:100%;background:#000;opacity:0.3;filter:alpha(opacity=30);
+				position:fixed;top:0;left:0;z-index:0;display:none;}
+			/* show end */
+		</style>
+	</head>
+	<body>
+		<!-- 标题 start -->
+		<h1 class="subject">视频弹出，遮罩层应用  --刀刀</h1>
+		<!-- 标题 end -->
+		
+		<!-- show start -->
+		<a href="#" class="btn" >点我啊，给以一个惊喜</a>
+		<div class="show-box">
+			<!-- 视频区：优酷的分享视频 -->
+			<embed src='http://player.youku.com/player.php/sid/XODQ0ODQwNjg4/v.swf' allowFullScreen='true' quality='high' width='700' height='400' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+		</div>
+		<div class="bg-div"></div>
+		<!-- show end -->
+		
+		<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+		<script>
+			$(function(){
+				$(".btn").on("click",function(){
+					var _left=parseInt(($(window).width()-$(".show-box").width())/2);
+					var _top=parseInt(($(window).height()-$(".show-box").height())/2);
+					$(".show-box").show().css({left:_left,top:_top});
+					$(".bg-div").show();
+				});
+				$(".bg-div").on("click",function(){
+					$(".show-box").hide();
+					$(".bg-div").hide();
+				});
+			});
+		</script>
+	</body>
+</html>
